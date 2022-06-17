@@ -1,0 +1,18 @@
+[package]
+name = "mandlebulb"
+version = "0.1.0"
+authors = ["evon <networking4me2@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+kiss3d = "0.34"
+#nalgebra = "0.30"
+nalgebra   = { version = "0.30", features = ["rand"] }
+rand       = "0.8"
+
+[dev-dependencies]
+nalgebra   = { version = "0.30", features = ["rand"] }
+rand       = "0.8"
+
+[build-dependencies]
+cmake = "0.1.31"
