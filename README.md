@@ -11,4 +11,4 @@ Mandlebulb is a program written in Rust, C, and Assembly to display a fractal.
 https://www.rust-lang.org/tools/install
 
 
-![Inside MandelBulb](/res/inside_of_mandelbulb.ong?raw=true "Inide of a MandelBulb")
+![Inside MandelBulb](/res/inside_of_mandelbulb.png?raw=true "Inide of a MandelBulb")
