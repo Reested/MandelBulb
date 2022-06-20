@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
 project(LibMath C)
-add_library(math STATIC math.c)
+enable_language(C ASM)
+add_library(math STATIC math.c asm.s)
 install(TARGETS math DESTINATION .)
