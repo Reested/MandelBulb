@@ -16,9 +16,10 @@ use na::{Matrix4, Point2, Point3};
 
 use pbr::ProgressBar;
 
-const DIMENSIONS: i32 = 256;
-const MAX_ITER: i32 = 20;
+const DIMENSIONS: i32 = 1024;
+const MAX_ITER: i32 = 50;
 
+// list of math fucntions from C with associated wrappers
 #[link(name = "math", kind = "static")]
 extern "C" {
     fn c_sqrt(x: f32) -> f32;
@@ -214,6 +215,7 @@ fn create_bulb() -> Vec<Vector> {
     pb.tick_format("|/-\\");
     pb.format("╢▌▌░╟");
     pb.show_message = true;
+    pb.show_tick = true;
     pb.message("Calculating Points : ");
 
     let mut mandlebub: Vec<Vector> = Vec::new();
