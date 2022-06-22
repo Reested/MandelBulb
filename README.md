@@ -28,19 +28,19 @@
 - [Screenshots](#screenshots)
 
 ## 🧐 About <a name = "about"></a>
-A Mandelbulb is a 3-Dimensional Fractal whereas a Mandlebrot is a 2-Dimensional Fractal. A complex number can be defined as `a + bi` where `a` and `b` are real numbers and `i^2^ = -1`. Hypercomplex numbers consist of 3 numbers representing the x, y, and z of a point in a Cartesian system. 
+A Mandelbulb is a 3-Dimensional Fractal whereas a Mandlebrot is a 2-Dimensional Fractal. A complex number can be defined as `a + bi` where `a` and `b` are real numbers and `i^2 = -1`. Hypercomplex numbers consist of 3 numbers representing the x, y, and z of a point in a Cartesian system. 
 
-A Mandlebrot is defined as `z -> z^n^ + c`, where `z` and `c` are triplex or hypercomplex numbers. A Mandlebulb, however, incorporates triplex numbers instead of complex numbers.
+A Mandlebrot is defined as `z -> z^n + c`, where `z` and `c` are triplex or hypercomplex numbers. A Mandlebulb, however, incorporates triplex numbers instead of complex numbers.
 
-How do we find the n^th^ value of a Mandlebulb? White and Nylander already figured this out but we must use polar or spherical coordinates instad of cartesian. To find the n^th^ power of a vector **v** = (x,y,z) is 
+How do we find the n^th value of a Mandlebulb? White and Nylander already figured this out but we must use polar or spherical coordinates instad of cartesian. To find the n^th power of a vector **v** = (x,y,z) is 
 ```
-v^n^ := r^n^(sin(nθ) * cos(nΦ), sin(nθ) * sin(nΦ), cos(nθ))
+v^n := r^n(sin(nθ) * cos(nΦ), sin(nθ) * sin(nΦ), cos(nθ))
 ```
 where 
 ```
-r = sqrt(x^2^ + y^2^ + z^2^)
+r = sqrt(x^2 + y^2 + z^2)
 Φ = arctan(y/x) = arg(x + yi)
-θ = arctan(sqrt(x^2^ + y^2^)/z) = arccos(z/r)
+θ = arctan(sqrt(x^2 + y^2)/z) = arccos(z/r)
 ```
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
