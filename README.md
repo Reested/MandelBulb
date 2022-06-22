@@ -25,6 +25,7 @@
 - [Built Using](#built_using)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
+- [Screenshots](#screenshots)
 
 ## 🧐 About <a name = "about"></a>
 A Mandelbulb is a 3-Dimensional Fractal whereas a Mandlebrot is a 2-Dimensional Fractal. A complex number can be defined as `a + bi` where `a` and `b` are real numbers and `i^2^ = -1`. Hypercomplex numbers consist of 3 numbers representing the x, y, and z of a point in a Cartesian system. 
@@ -77,25 +78,6 @@ cargo run
 - [Daniel Shiffman](http://thecodingtrain.com/)
 - [WIKI](https://en.wikipedia.org/wiki/Mandelbulb)
 
-
-
-
-
-
-
-
-
-
-
-
-
-# MandleBulb
-
-Mandlebulb is a program written in Rust, C, and Assembly to display a fractal.
-
-## Installation
-
-https://www.rust-lang.org/tools/install
-
-
-![Inside MandelBulb](/res/inside_of_mandelbulb.png?raw=true "Inide of a MandelBulb")
+## 📸 Screenshots <a name = "screenshots"></a>
+![Inside MandelBulb](/res/mandelbulb_inside.png?raw=true "Inide of a MandelBulb")
+![Inside Video MandelBulb](/res/inside_of_mandelbulb.mov?raw=true "Inide video of a MandelBulb")
