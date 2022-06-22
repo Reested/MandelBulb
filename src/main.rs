@@ -16,10 +16,9 @@ use na::{Matrix4, Point2, Point3};
 
 use pbr::ProgressBar;
 
-const DIMENSIONS: i32 = 1024;
-const MAX_ITER: i32 = 50;
+const DIMENSIONS: i32 = 512;
+const MAX_ITER: i32 = 20;
 
-// list of math fucntions from C with associated wrappers
 #[link(name = "math", kind = "static")]
 extern "C" {
     fn c_sqrt(x: f32) -> f32;
@@ -86,8 +85,12 @@ struct Polar {
 
 impl Polar {
     fn new(x: f32, y: f32, z: f32) -> Polar {
-        let r: f32 = sqrt(x * x + y * y + z * z);
-        let theta: f32 = atan2(sqrt(x * x + y * y), z);
+        let x_2: f32 = x * x;
+        let y_2: f32 = y * y;
+        let z_2: f32 = z * z;
+
+        let r: f32 = sqrt(x_2 + y_2 + z_2);
+        let theta: f32 = atan2(sqrt(x_2 + y_2), z);
         let phi: f32 = atan2(y, x);
         Polar { r, theta, phi }
     }
@@ -100,8 +103,6 @@ struct AppState {
 }
 
 impl State for AppState {
-    // Return the custom renderer that will be called at each
-    // render loop.
     fn cameras_and_effect_and_renderer(
         &mut self,
     ) -> (
@@ -156,7 +157,6 @@ struct MandleBulbRenderer {
 }
 
 impl MandleBulbRenderer {
-    /// Creates a new points renderer.
     fn new(point_size: f32) -> MandleBulbRenderer {
         let mut shader = Effect::new_from_str(VERTEX_SHADER_SRC, FRAGMENT_SHADER_SRC);
 
@@ -186,7 +186,6 @@ impl MandleBulbRenderer {
 }
 
 impl Renderer for MandleBulbRenderer {
-    /// Actually draws the points.
     fn render(&mut self, pass: usize, camera: &mut dyn Camera) {
         if self.colored_points.len() == 0 {
             return;
@@ -240,9 +239,15 @@ fn create_bulb() -> Vec<Vector> {
                 loop {
                     let polar: Polar = Polar::new(zeta.x, zeta.y, zeta.z);
 
-                    zeta.x = x + (pow(polar.r, n) * sin(polar.theta * n) * cos(polar.phi * n));
-                    zeta.y = y + (pow(polar.r, n) * sin(polar.theta * n) * sin(polar.phi * n));
-                    zeta.z = z + (pow(polar.r, n) * cos(polar.theta * n));
+                    let n_theta: f32 = polar.theta * n;
+                    let n_phi: f32 = polar.phi * n;
+
+                    let power_fn: f32 = pow(polar.r, n);
+                    let sin_theta_fn: f32 = sin(n_theta);
+
+                    zeta.x = x + (power_fn * sin_theta_fn * cos(n_phi));
+                    zeta.y = y + (power_fn * sin_theta_fn * sin(n_phi));
+                    zeta.z = z + (power_fn * cos(n_theta));
 
                     iter += 1;
 
