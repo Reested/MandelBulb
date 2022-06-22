@@ -276,7 +276,7 @@ fn to_point3(v: Vector) -> Point3<f32> {
 fn main() {
     let bulb = create_bulb();
 
-    let window = Window::new("MandleBulb");
+    let window = Window::new("MandelBulb");
     let app = AppState {
         mandlebulb_renderer: MandleBulbRenderer::new(0.0),
         mandlebulb: bulb,
